@@ -1,0 +1,36 @@
+{
+	"configurations": [
+		{
+			"name": "Mac (Apple Silicon)",
+			"includePath": [
+				"${workspaceFolder}/**",
+				"${workspaceFolder}/core",
+				"${workspaceFolder}/scene",
+				"${workspaceFolder}/editor",
+				"${workspaceFolder}/servers",
+				"${workspaceFolder}/drivers",
+				"${workspaceFolder}/platform/macos",
+				"${workspaceFolder}/modules",
+				"${workspaceFolder}/main",
+				"${workspaceFolder}/platform"
+			],
+			"defines": [
+				"MACOS_ENABLED",
+				"UNIX_ENABLED",
+				"TOOLS_ENABLED",
+				"DEBUG_METHODS_ENABLED",
+				"THREADS_ENABLED",
+				"VULKAN_ENABLED",
+				"MOLENVK_ENABLED"
+			],
+			"macFrameworkPath": [
+				"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+			],
+			"compilerPath": "/usr/bin/clang++",
+			"cStandard": "c17",
+			"cppStandard": "c++17",
+			"intelliSenseMode": "macos-arm64"
+		}
+	],
+	"version": 4
+}

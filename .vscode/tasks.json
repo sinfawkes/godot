@@ -1,0 +1,61 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Editor",
+			"type": "shell",
+			"command": "scons",
+			"args": [
+				"-j8",
+				"dev_build=yes",
+				"vulkan=no"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			},
+			"problemMatcher": {
+				"owner": "cpp",
+				"fileLocation": ["relative", "${workspaceFolder}"],
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error|fatal error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			},
+			"detail": "Build Godot editor with dev mode (arm64)"
+		},
+		{
+			"label": "Build Editor (Clean)",
+			"type": "shell",
+			"command": "scons",
+			"args": [
+				"-c"
+			],
+			"group": "build",
+			"presentation": {
+				"reveal": "always",
+				"panel": "shared"
+			},
+			"detail": "Clean build artifacts"
+		},
+		{
+			"label": "Build Editor (Full Rebuild)",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Build Editor (Clean)",
+				"Build Editor"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "Clean and rebuild the editor"
+		}
+	]
+}

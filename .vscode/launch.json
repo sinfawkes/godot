@@ -1,0 +1,40 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug Godot Editor",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/bin/godot.macos.editor.dev.arm64",
+			"args": [],
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Build Editor"
+		},
+		{
+			"name": "Debug Godot Editor (With Project)",
+			"type": "lldb",
+			"request": "launch",
+			"program": "${workspaceFolder}/bin/godot.macos.editor.dev.arm64",
+			"args": [
+				"--path",
+				"${input:projectPath}"
+			],
+			"cwd": "${workspaceFolder}",
+			"preLaunchTask": "Build Editor"
+		},
+		{
+			"name": "Attach to Godot Editor",
+			"type": "lldb",
+			"request": "attach",
+			"program": "${workspaceFolder}/bin/godot.macos.editor.dev.arm64",
+			"pid": "${command:pickProcess}"
+		}
+	],
+	"inputs": [
+		{
+			"id": "projectPath",
+			"type": "promptString",
+			"description": "Path to Godot project to open"
+		}
+	]
+}
